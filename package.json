@@ -1,31 +1,26 @@
 {
+  "version": 2,
   "name": "camellia-innovations",
-  "version": "1.0.0",
-  "description": "Camellia Innovations - Merging Nature, AI, and Biotechnology",
-  "main": "index.html",
-  "scripts": {
-    "dev": "npx serve .",
-    "build": "echo 'No build process needed for static site'",
-    "start": "npx serve ."
-  },
-  "keywords": [
-    "biotechnology",
-    "AI",
-    "bioinformatics",
-    "sustainable",
-    "innovation",
-    "south-africa"
+  "builds": [
+    {
+      "src": "**/*.html",
+      "use": "@vercel/static"
+    }
   ],
-  "author": "Camellia Innovations (Pty) Ltd",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/camellia-innovations/website"
-  },
-  "dependencies": {
-    "serve": "^14.0.0"
-  },
-  "engines": {
-    "node": ">=16.0.0"
-  }
+  "routes": [
+    {
+      "src": "/css/(.*)",
+      "dest": "/css/$1"
+    },
+    {
+      "src": "/js/(.*)",
+      "dest": "/js/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false
 }
